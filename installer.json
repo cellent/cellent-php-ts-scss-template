@@ -1,0 +1,38 @@
+{
+  "name": "PHP TypeScript Template",
+  "packagename": "php_typescript_template",
+  "version": "1.0.0",
+  "ignore": [
+    ".git/",
+    ".idea/",
+    ".sass-cache/",
+    "composer.json",
+    "composer.lock",
+    "phpunit.xml",
+    "README.MD",
+    "tsconfig.json",
+    "tslint.json",
+    "typings.json",
+    "config/local.php",
+    "public/css/*.scss",
+    "public/css/*.css.map",
+    "public/js/*.ts",
+    "public/js/*.js.map",
+    "tests/",
+    "typings/"
+  ],
+  "deployment": {
+    "url": "http://cellent-installer.local/"
+  },
+  "config_dir": [
+    "config"
+  ],
+  "scripts": {
+    "pre-package-cmd": [
+      "composer compile-ts",
+      "composer compile-sass"
+    ],
+    "post-install-cmd": [
+    ]
+  }
+}

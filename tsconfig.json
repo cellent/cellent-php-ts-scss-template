@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "target": "es5",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "out": "public/js/app.js",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "typings/index.d.ts",
+    "public/js/main.ts",
+    "public/js/Colorizer.ts"
+  ]
+}

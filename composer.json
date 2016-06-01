@@ -1,0 +1,87 @@
+{
+  "name": "cellent/php-typescript-template",
+  "description": "Template for PHP based projects.",
+  "license": "proprietary",
+  "autoload": {
+    "psr-4": {
+      "PhpTemplate\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhpTemplate\\Test\\": "tests/PhpUnit/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "5.6.0"
+    },
+    "secure-http": false
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.6.0",
+    "silex/silex": "~1.3",
+    "igorw/config-service-provider": "~1.2",
+    "twig/twig": "~1.24",
+    "components/jquery": "~2.2",
+    "twbs/bootstrap": "~3.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.3",
+    "symfony/browser-kit": "~3.0",
+    "symfony/css-selector": "~3.0",
+    "cellent/installer": "0.8.*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://de-cig-201.cellent.int/satis/"
+    }
+  ],
+  "scripts": {
+    "post-update-cmd": [
+      "@copy-vendor-public"
+    ],
+    "post-install-cmd": [
+      "@copy-vendor-public"
+    ],
+    "copy-vendor-public": [
+      "rm -rf public/js/vendor",
+      "rm -rf public/css/vendor",
+      "mkdir public/js/vendor",
+      "mkdir public/css/vendor",
+      "@copy-jquery",
+      "@copy-bootstrap"
+    ],
+    "copy-jquery": [
+      "cp vendor/components/jquery/jquery.min.* public/js/vendor/"
+    ],
+    "copy-bootstrap": [
+      "cp vendor/twbs/bootstrap/dist/css/bootstrap.min.css public/css/vendor/",
+      "cp vendor/twbs/bootstrap/dist/js/bootstrap.min.js public/js/vendor/"
+    ],
+    "lint-ts": [
+      "tslint 'public/js/**/*.ts'"
+    ],
+    "compile-ts": [
+      "tsc"
+    ],
+    "compile-sass": [
+      "sass public/css/style.scss public/css/style.css"
+    ],
+    "test": [
+      "@test-karma",
+      "@test-phpunit"
+    ],
+    "test-karma": [
+      "karma start"
+    ],
+    "test-phpunit": [
+      "./vendor/bin/phpunit"
+    ],
+    "build": [
+      "echo 'please run `vendor/bin/installer package` by hand'"
+    ]
+  }
+}

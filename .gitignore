@@ -1,0 +1,12 @@
+.idea
+.sass-cache
+config/local.php
+public/css/**/*.css
+public/css/**/*.css.map
+public/js/**/*.js
+public/js/**/*.js.map
+tests/PhpUnit/report
+typings
+vendor
+node_modules
+build

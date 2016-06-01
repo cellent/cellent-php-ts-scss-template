@@ -1,0 +1,17 @@
+{% set withLayout = withLayout is not defined or withLayout %}
+{% extends withLayout ? 'layout/layout.twig' : 'layout/empty.twig' %}
+
+{% block nav %}
+    <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/blog">Blog</a></li>
+    </ul>
+{% endblock nav %}
+
+{% block content %}
+    <div class="blog-entries">
+        {% for post in blog %}
+            <li><span class="date">[{{ post.date }}]</span> {{ post.title }}</li>
+        {% endfor %}
+    </div>
+{% endblock content %}
